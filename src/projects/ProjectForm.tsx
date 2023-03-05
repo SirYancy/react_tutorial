@@ -59,9 +59,9 @@ function ProjectForm({
 
     function isValid() {
         return (
-            errors.name.length == 0 &&
+            errors.name.length === 0 &&
             errors.description.length === 0 &&
-            errors.budget.length == 0
+            errors.budget.length === 0
         )
     }
 

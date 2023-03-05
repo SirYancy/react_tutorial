@@ -36,7 +36,7 @@ function ProjectsPage() {
     }, [currentPage]);
     const saveProject = (project:Project) => {
         let updatedProjects = projects.map((p: Project) => {
-            return p.id == project.id ? project : p;
+            return p.id === project.id ? project : p;
         });
         setProjects(updatedProjects);
     }
