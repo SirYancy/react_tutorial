@@ -10,6 +10,9 @@ export const SAVE_PROJECT_FAILURE = 'SAVE_PROJECT_FAILURE';
 export const DELETE_PROJECT_REQUEST = 'DELETE_PROJECT_REQUEST';
 export const DELETE_PROJECT_SUCCESS = 'DELETE_PROJECT_SUCCESS';
 export const DELETE_PROJECT_FAILURE = 'DELETE_PROJECT_FAILURE';
+export const FIND_PROJECT_REQUEST = 'FIND_PROJECT_REQUEST';
+export const FIND_PROJECT_SUCCESS = 'FIND_PROJECT_SUCCESS';
+export const FIND_PROJECT_FAILURE = 'FIND_PROJECT_FAILURE';
 
 interface LoadProjectsRequest {
     type: typeof LOAD_PROJECTS_REQUEST;
@@ -53,6 +56,20 @@ interface DeleteProjectFailure {
     payload: { message: string };
 }
 
+interface FindProjectRequest {
+    type: typeof FIND_PROJECT_REQUEST;
+}
+
+interface  FindProjectSuccess{
+    type: typeof FIND_PROJECT_SUCCESS;
+    payload: { project: Project };
+}
+
+interface FindProjectFailure{
+    type: typeof FIND_PROJECT_FAILURE;
+    payload: { message: string };
+}
+
 export type ProjectActionTypes =
     | LoadProjectsRequest
     | LoadProjectsSuccess
@@ -62,7 +79,10 @@ export type ProjectActionTypes =
     | SaveProjectFailure
     | DeleteProjectRequest
     | DeleteProjectSuccess
-    | DeleteProjectFailure;
+    | DeleteProjectFailure
+    | FindProjectRequest
+    | FindProjectSuccess
+    | FindProjectFailure;
 
 export interface ProjectState {
     loading: boolean;
