@@ -18,6 +18,7 @@ import {Project} from "../Project";
 
 export const initialProjectState: ProjectState = {
     projects: [],
+    project: null,
     loading: false,
     error: undefined,
     page: 1
@@ -37,7 +38,8 @@ export function projectReducer(
                 ...state,
                 loading: false,
                 page: 0,
-                projects: [project],
+                projects: [],
+                project: project,
                 errors: '',
             };
         case FIND_PROJECT_FAILURE:
@@ -55,8 +57,9 @@ export function projectReducer(
             return {
                 ...state,
                 loading: false,
-                page,
-                projects,
+                page: page,
+                projects: projects,
+                project: null,
                 errors: '',
             };
         case LOAD_PROJECTS_FAILURE:

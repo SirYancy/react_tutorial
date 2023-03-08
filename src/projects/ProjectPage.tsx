@@ -14,7 +14,7 @@ function ProjectPage(props: any){
         (appState: AppState) => appState.projectState.loading
     );
     const project = useSelector(
-        (appstate: AppState) => appstate.projectState.projects[0]
+        (appstate: AppState) => appstate.projectState.project
     );
     const error = useSelector(
         (appState: AppState ) => appState.projectState.error
@@ -26,7 +26,7 @@ function ProjectPage(props: any){
 
     useEffect(() => {
         dispatch(findProject(id));
-    }, [id]);
+    }, [dispatch]);
 
     return (
         <div>

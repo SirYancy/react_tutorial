@@ -40,7 +40,10 @@ export function findProject(
         return projectAPI
             .find(id)
             .then((data) => {
-                dispatch( { type: FIND_PROJECT_SUCCESS });
+                dispatch( {
+                    type: FIND_PROJECT_SUCCESS,
+                    payload: { project: data },
+                });
             })
             .catch((error) => {
                 dispatch( { type: FIND_PROJECT_FAILURE });

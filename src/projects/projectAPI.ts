@@ -84,7 +84,13 @@ const projectAPI = {
         return fetch(`${url}/${id}`)
             .then(checkStatus)
             .then(parseJSON)
-            .then(convertToProjectModel);
+            .then(convertToProjectModel)
+            .catch((error: Error) => {
+                console.log('log client error ' + error);
+                throw new Error(
+                    'There was an error loading project. Please fix it.'
+                )
+            });
     },
 };
 

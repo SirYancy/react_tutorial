@@ -87,6 +87,7 @@ export type ProjectActionTypes =
 export interface ProjectState {
     loading: boolean;
     projects: Project[];
+    project: Project | null;
     error: string | undefined;
     page: number;
 }
